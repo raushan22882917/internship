@@ -1,0 +1,15 @@
+<<<<<<< HEAD
+Flask
+pandas
+requests
+Pillow
+rembg
+gunicorn
+=======
+Flask
+pandas
+requests
+Pillow
+rembg
+gunicorn
+>>>>>>> 46a219979ec4f6eb18485c5723f8b9c6ad03a371
