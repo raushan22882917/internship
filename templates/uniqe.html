@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload CSV File</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        .navbar {
+            background-color: #008cba;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .navbar a.back-button {
+            background-color: #005f7f;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .navbar a.back-button:hover {
+            background-color: #003f5f;
+        }
+        .container {
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #008cba;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #333;
+        }
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 16px;
+            background-color: #008cba;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #005f7f;
+        }
+        .footer {
+            background-color: #008cba;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        .button-group {
+            margin-top: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .download-link {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 16px;
+            background-color: #008cba;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .download-link:hover {
+            background-color: #005f7f;
+        }
+        .instruction {
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="javascript:history.back()" class="back-button">Back</a>
+        <h1>Upload CSV File</h1>
+    </div>
+    <div class="container">
+        <h1>Upload CSV File</h1>
+        <form action="{{ url_for('upload_file_unique') }}" method="post" enctype="multipart/form-data">
+            <label for="file">CSV File:</label>
+            <input type="file" name="file" id="file" required>
+            <br><br>
+            <div class="button-group">
+                <button type="submit">Upload</button>
+                <a href="static/demo/Image1.csv" class="download-link" download="Dummy_File.csv">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </div>
+            <p class="instruction">Instructions:<br>
+                1. Choose a CSV file to upload.<br>
+                2. Click the "Upload" button to submit.<br>
+                3. Alternatively, download a sample CSV file by clicking the "Download" button.<br>
+                4. Ensure your CSV file follows the required format.<br>
+                5. After uploading, proceed to the next step as directed.
+            </p>
+        </form>
+    </div>
+    <div class="footer">
+        &copy; 2024 Moglix. All Rights Reserved.
+    </div>
+</body>
+</html>

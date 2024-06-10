@@ -62,16 +62,6 @@ input[type="submit"]:hover,
 a.download-link:hover {
     background-color: #005f7f;
 }
-.footer {
-    background-color: #008cba;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-}
 #resize-options {
     display: none;
 }
@@ -142,11 +132,10 @@ a.download-link:hover {
         }
 
         .footer {
-            padding: 20px 0;
+            padding: 10px 0;
             background-color: #008cba;
             color: #fff;
             text-align: center;
-            position: absolute;
             bottom: 0;
             width: 100%;
         }

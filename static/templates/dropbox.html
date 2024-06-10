@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Image Downloader</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        .navbar {
+            background-color: #008cba;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .navbar a.back-button {
+            background-color: #005f7f;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .navbar a.back-button:hover {
+            background-color: #003f5f;
+        }
+        .container {
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #008cba;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #333;
+        }
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 16px;
+        }
+        button,
+        a.download-link {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 16px;
+            background-color: #008cba;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            flex: 1;
+        }
+        button:hover,
+        a.download-link:hover {
+            background-color: #005f7f;
+        }
+        .footer {
+            background-color: #008cba;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+        .button-group a.download-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .button-group a.download-link i {
+            margin-right: 8px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="javascript:history.back()" class="back-button">Back</a>
+        <h1>Image Downloader</h1>
+    </div>
+    <div class="container">
+        <h1>Upload CSV to Download Images</h1>
+        <form method="post" enctype="multipart/form-data">
+            <label for="csv_file">CSV File:</label>
+            <input type="file" name="csv_file" id="csv_file" required>
+            <br><br>
+            <label for="action">Action:</label>
+            <select name="action" id="action">
+                <option value="download">Download Images</option>
+                <option value="resize">Resize Images</option>
+                <option value="remove_bg">Remove Background</option>
+                <option value="resize_remove_bg">Resize + Remove Background</option>
+            </select>
+            <br><br>
+            <div class="button-group">
+                <button type="submit">Submit</button>
+                <a href="static/demo/Image1.csv" class="download-link" download="Dummy_File.csv">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </div>
+        </form>
+    </div>
+    <div class="footer">
+        &copy; 2024 Moglix. All Rights Reserved.
+    </div>
+    <script>
+        function toggleResizeOptions() {
+            const option = document.getElementById("option").value;
+            const resizeOptions = document.getElementById("resize-options");
+            if (option === "resize" || option === "resize_background_remove") {
+                resizeOptions.style.display = "block";
+            } else {
+                resizeOptions.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
